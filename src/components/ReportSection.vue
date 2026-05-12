@@ -95,20 +95,19 @@ const insights = [
   'Erste Maßnahmen zur Optimierung',
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
 .report {
   padding: $space-3xl 0;
-  background: $color-sage-bg;
+  background: $color-mint; // mint i lehtë
   position: relative;
   overflow: hidden;
 
   &__bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba($color-bright-green, 0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 80% 50%, rgba($color-teal, 0.06) 0%, transparent 60%);
   }
 
   &__header {
@@ -122,7 +121,7 @@ const insights = [
     color: $color-dark;
     margin-bottom: $space-sm;
 
-    span { color: $color-brand-green; }
+    span { color: $color-teal; }
   }
 
   &__desc {
@@ -140,16 +139,15 @@ const insights = [
     align-items: start;
     position: relative;
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: 1fr;
-    }
+    @media (max-width: $bp-lg) { grid-template-columns: 1fr; }
   }
 
+  // White card - light background
   &__card {
     background: $color-white;
     border-radius: 24px;
     padding: $space-lg;
-    box-shadow: 0 8px 40px rgba($color-dark-green, 0.1);
+    box-shadow: 0 8px 32px rgba($color-teal, 0.08);
     border: 1px solid $color-border;
   }
 
@@ -163,16 +161,14 @@ const insights = [
   }
 
   &__logo-mini {
-    font-family: $font-display;
     font-weight: 800;
     font-size: 0.9rem;
-    color: $color-dark-green;
+    color: $color-teal;
   }
 
   &__card-label {
-    font-family: $font-mono;
     font-size: 0.72rem;
-    color: $color-gray-light;
+    color: $color-gray;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -208,7 +204,6 @@ const insights = [
   }
 
   &__score-n {
-    font-family: $font-display;
     font-weight: 800;
     font-size: 1.8rem;
     color: $color-dark;
@@ -217,7 +212,7 @@ const insights = [
 
   &__score-s {
     font-size: 0.65rem;
-    color: $color-gray-light;
+    color: $color-gray;
   }
 
   &__score-status {
@@ -241,8 +236,8 @@ const insights = [
     letter-spacing: 0.06em;
 
     &--competitive {
-      background: rgba($color-bright-green, 0.15);
-      color: $color-brand-green;
+      background: rgba($color-teal, 0.12);
+      color: $color-teal;
     }
   }
 
@@ -259,32 +254,18 @@ const insights = [
       margin-bottom: 0.3rem;
     }
 
-    &-label {
-      font-family: $font-mono;
-      font-size: 0.75rem;
-      color: $color-gray;
-    }
-
-    &-val {
-      font-family: $font-mono;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: $color-dark;
-    }
+    &-label { font-size: 0.75rem; color: $color-gray; }
+    &-val { font-size: 0.75rem; font-weight: 500; color: $color-dark; }
 
     &-bar {
       height: 8px;
-      background: $color-sage-bg;
+      background: $color-mint;
       border-radius: 4px;
       overflow: hidden;
       margin-bottom: 0.3rem;
     }
 
-    &-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 1.5s ease-out;
-    }
+    &-fill { height: 100%; border-radius: 4px; transition: width 1.5s ease-out; }
 
     &-status {
       font-size: 0.7rem;
@@ -292,18 +273,14 @@ const insights = [
       text-transform: uppercase;
       letter-spacing: 0.06em;
 
-      &.strong { color: $color-brand-green; }
+      &.strong { color: $color-teal; }
       &.emerging { color: $color-orange; }
     }
   }
 
   // Right column
   &__layers {
-    h3 {
-      font-size: 1.3rem;
-      color: $color-dark;
-      margin-bottom: $space-md;
-    }
+    h3 { font-size: 1.3rem; color: $color-dark; margin-bottom: $space-md; }
   }
 
   &__layer {
@@ -312,53 +289,36 @@ const insights = [
     margin-bottom: $space-md;
 
     &-num {
-      font-family: $font-mono;
-      font-weight: 500;
       font-size: 0.75rem;
-      color: $color-bright-green;
-      background: $color-sage-bg;
+      color: $color-teal;
+      background: $color-white;
       border: 1px solid $color-border;
       border-radius: 8px;
       padding: 0.3rem 0.6rem;
       height: fit-content;
       flex-shrink: 0;
+      font-weight: 600;
     }
 
     &-info {
-      h4 {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: $color-dark;
-        margin-bottom: 0.3rem;
-      }
-
-      p {
-        font-size: 0.85rem;
-        color: $color-gray;
-        line-height: 1.5;
-      }
+      h4 { font-size: 0.95rem; font-weight: 600; color: $color-dark; margin-bottom: 0.3rem; }
+      p { font-size: 0.85rem; color: $color-gray; line-height: 1.5; }
     }
   }
 
+  
   &__insight {
     display: flex;
     gap: $space-sm;
     padding: $space-md;
-    background: $color-dark-green;
+    background: $color-teal; 
     border-radius: 16px;
     color: $color-white;
     margin-top: $space-md;
 
-    &-icon {
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
+    &-icon { font-size: 1.2rem; flex-shrink: 0; }
 
-    strong {
-      font-size: 0.9rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+    strong { font-size: 0.9rem; display: block; margin-bottom: 0.5rem; }
 
     ul {
       display: flex;
@@ -367,12 +327,9 @@ const insights = [
 
       li {
         font-size: 0.82rem;
-        color: rgba($color-white, 0.7);
+        color: rgba($color-white, 0.85);
 
-        &::before {
-          content: '→ ';
-          color: $color-bright-green;
-        }
+        &::before { content: '→ '; color: rgba($color-white, 0.6); }
       }
     }
   }

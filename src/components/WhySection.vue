@@ -68,13 +68,12 @@ const features = [
   { icon: '🏆', title: 'Wettbewerbsvergleich', desc: 'Ihre Position im Markt – klar und kontextbezogen eingeordnet.' },
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
 .why {
   padding: $space-3xl 0;
-  background: $color-white;
+  background: $color-white; // seksion i bardhë
 
   &__header {
     text-align: center;
@@ -86,7 +85,7 @@ const features = [
     color: $color-dark;
     margin-bottom: $space-sm;
 
-    span { color: $color-brand-green; }
+    span { color: $color-teal; }
   }
 
   &__desc {
@@ -103,34 +102,28 @@ const features = [
     gap: $space-md;
     margin-bottom: $space-xl;
 
-    @media (max-width: $bp-md) {
-      grid-template-columns: 1fr;
-    }
+    @media (max-width: $bp-md) { grid-template-columns: 1fr; }
   }
 
   &__card {
     padding: $space-lg;
     border-radius: 20px;
     border: 1px solid $color-border;
+    background: $color-white;
 
-    &-icon {
-      font-size: 1.5rem;
-      margin-bottom: $space-sm;
-    }
+    &-icon { font-size: 1.5rem; margin-bottom: $space-sm; }
 
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: $space-sm;
-      color: $color-dark;
-    }
+    h3 { font-size: 1.2rem; margin-bottom: $space-sm; color: $color-dark; }
 
+    // Problem card - warm light background
     &--problem {
       background: #FFF8F5;
       border-color: #FFD0B0;
     }
 
+    // Solution card - mint light background
     &--solution {
-      background: $color-sage-light;
+      background: $color-mint;
       border-color: $color-border;
     }
   }
@@ -158,7 +151,7 @@ const features = [
     margin-top: 0.4rem;
 
     &--red { background: #FF6B4A; }
-    &--green { background: $color-bright-green; }
+    &--green { background: $color-teal; }
   }
 
   &__features {
@@ -166,46 +159,29 @@ const features = [
     grid-template-columns: repeat(4, 1fr);
     gap: $space-md;
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: $bp-sm) {
-      grid-template-columns: 1fr;
-    }
+    @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
   }
 
   &__feature {
     display: flex;
     gap: $space-sm;
     padding: $space-md;
-    background: $color-sage-light;
+    background: $color-mint;
     border: 1px solid $color-border;
     border-radius: 16px;
     transition: transform $transition-base, box-shadow $transition-base;
 
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba($color-brand-green, 0.12);
+      box-shadow: 0 12px 32px rgba($color-teal, 0.12);
+      border-color: $color-teal;
     }
 
-    &-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
+    &-icon { font-size: 1.5rem; flex-shrink: 0; }
 
-    h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      color: $color-dark;
-    }
-
-    p {
-      font-size: 0.85rem;
-      color: $color-gray;
-      line-height: 1.5;
-    }
+    h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; color: $color-dark; }
+    p { font-size: 0.85rem; color: $color-gray; line-height: 1.5; }
   }
 }
 </style>

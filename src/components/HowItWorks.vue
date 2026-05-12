@@ -35,7 +35,6 @@ const steps = [
   { icon: '📈', title: 'Fortschritt überprüfen', desc: 'Mit regelmäßigen Re-Scans verfolgen Sie Ihre Entwicklung und erkennen neue Handlungsbedarfe.' },
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
@@ -52,7 +51,7 @@ const steps = [
     font-size: clamp(2rem, 4vw, 3rem);
     color: $color-dark;
 
-    span { color: $color-brand-green; }
+    span { color: $color-teal; }
   }
 
   &__steps {
@@ -62,18 +61,13 @@ const steps = [
     position: relative;
     margin-bottom: $space-2xl;
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: $bp-sm) {
-      grid-template-columns: 1fr;
-    }
+    @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
   }
 
   &__step {
     padding: $space-lg;
-    background: $color-sage-light;
+    background: $color-mint; // mint i lehtë
     border: 1px solid $color-border;
     border-radius: 20px;
     position: relative;
@@ -81,35 +75,22 @@ const steps = [
 
     &:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba($color-brand-green, 0.12);
-      border-color: $color-bright-green;
+      box-shadow: 0 16px 40px rgba($color-teal, 0.12);
+      border-color: $color-teal;
     }
 
     &-num {
-      font-family: $font-mono;
       font-size: 0.7rem;
-      color: $color-bright-green;
-      font-weight: 500;
+      color: $color-teal;
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
-    &-icon {
-      font-size: 2rem;
-      margin-bottom: $space-sm;
-    }
+    &-icon { font-size: 2rem; margin-bottom: $space-sm; }
 
-    h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: $color-dark;
-      margin-bottom: 0.5rem;
-    }
+    h3 { font-size: 1rem; font-weight: 700; color: $color-dark; margin-bottom: 0.5rem; }
 
-    p {
-      font-size: 0.875rem;
-      color: $color-gray;
-      line-height: 1.6;
-    }
+    p { font-size: 0.875rem; color: $color-gray; line-height: 1.6; }
 
     &-arrow {
       display: none;
@@ -120,20 +101,22 @@ const steps = [
         top: 50%;
         transform: translateY(-50%);
         font-size: 1.2rem;
-        color: $color-bright-green;
+        color: $color-teal;
         z-index: 1;
       }
     }
   }
 
+  
   &__cta-box {
-    background: linear-gradient(135deg, $color-dark-green, $color-mid-green);
+    background: $color-teal;
     border-radius: 24px;
     padding: $space-xl $space-2xl;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: $space-md;
+    box-shadow: 0 8px 32px rgba($color-teal, 0.2);
 
     @media (max-width: $bp-md) {
       flex-direction: column;
@@ -149,9 +132,7 @@ const steps = [
       margin-bottom: 0.3rem;
     }
 
-    p {
-      color: rgba($color-white, 0.7);
-    }
+    p { color: rgba($color-white, 0.8); }
   }
 }
 </style>

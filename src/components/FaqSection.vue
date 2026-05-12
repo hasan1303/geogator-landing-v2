@@ -54,27 +54,24 @@ const faqs = [
 </script>
 
 <style lang="scss" scoped>
-/* Styles apply only to this component (scoped) */
 @use '../assets/styles/variables' as *;
 
 .faq {
   padding: $space-3xl 0;
-  background: $color-sage-light;
+  background: $color-gray-light; // gri i lehtë
 
   &__header {
     text-align: center;
     margin-bottom: $space-2xl;
   }
 
-  /* Responsive font size using clamp() */
   &__title {
     font-size: clamp(2rem, 4vw, 3rem);
     color: $color-dark;
 
-    span { color: $color-brand-green; }
+    span { color: $color-teal; }
   }
 
-  /* Centered list with max width */
   &__list {
     max-width: 760px;
     margin: 0 auto;
@@ -83,20 +80,25 @@ const faqs = [
     gap: $space-xs;
   }
 
-  /* Single FAQ item - border changes color when open */
+  // White cards 
   &__item {
     background: $color-white;
     border: 1px solid $color-border;
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-    transition: border-color $transition-fast;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
 
-    &--open { border-color: $color-bright-green; }
-    &:hover { border-color: $color-bright-green; }
+    &--open {
+      border-color: $color-teal;
+      box-shadow: 0 4px 16px rgba($color-teal, 0.1);
+    }
+
+    &:hover {
+      border-color: $color-teal;
+    }
   }
 
-  /* Question row - space-between pushes icon to the right */
   &__question {
     display: flex;
     justify-content: space-between;
@@ -106,19 +108,17 @@ const faqs = [
     font-weight: 600;
     font-size: 0.95rem;
     color: $color-dark;
-    user-select: none; /* Prevents text selection on click */
+    user-select: none;
   }
 
-  /* +/- toggle icon */
   &__icon {
     font-size: 1.4rem;
     font-weight: 300;
-    color: $color-bright-green;
+    color: $color-teal;
     flex-shrink: 0;
     line-height: 1;
   }
 
-  /* Answer shown/hidden via v-show */
   &__answer {
     padding: 0 $space-md $space-md;
 

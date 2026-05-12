@@ -104,32 +104,22 @@ const breakdown = [
   { label: 'Trust', val: '14/30', pct: 47, color: '#A8CC78' },
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
 .hero {
   min-height: 100vh;
-  background: $color-dark-green;
+  background: $color-mint;
+  background-image:
+    linear-gradient(rgba($color-teal, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($color-teal, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
 
-  &__bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  &__grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba($color-bright-green, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba($color-bright-green, 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
+  &__bg { position: absolute; inset: 0; pointer-events: none; }
 
   &__orb {
     position: absolute;
@@ -137,19 +127,16 @@ const breakdown = [
     filter: blur(80px);
 
     &--1 {
-      width: 600px;
-      height: 600px;
-      background: rgba($color-bright-green, 0.12);
-      top: -200px;
-      right: -100px;
+      width: 600px; height: 600px;
+      background: rgba($color-teal, 0.08);
+      top: -200px; right: -100px;
+      @media (max-width: $bp-sm) { width: 250px; height: 250px; }
     }
 
     &--2 {
-      width: 400px;
-      height: 400px;
-      background: rgba($color-orange, 0.08);
-      bottom: -100px;
-      left: 10%;
+      width: 400px; height: 400px;
+      background: rgba($color-orange, 0.05);
+      bottom: -100px; left: 10%;
     }
   }
 
@@ -164,44 +151,53 @@ const breakdown = [
 
     @media (max-width: $bp-lg) {
       grid-template-columns: 1fr;
-      gap: $space-xl;
       padding-top: 100px;
+      padding-bottom: $space-xl;
+    }
+
+    @media (max-width: $bp-sm) {
+      padding-top: 90px;
+      padding-bottom: $space-lg;
+      gap: $space-md;
     }
   }
 
   &__content {
     position: relative;
     z-index: 1;
+
+    @media (max-width: $bp-lg) { text-align: center; }
+    @media (max-width: $bp-sm) { text-align: left; }
   }
 
   &__tag {
     margin-bottom: $space-md;
+    @media (max-width: $bp-lg) { display: flex; justify-content: center; }
+    @media (max-width: $bp-sm) { justify-content: flex-start; }
   }
 
   &__title {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    color: $color-white;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: $color-dark;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: $space-md;
     letter-spacing: -0.03em;
 
-    &-accent {
-      color: $color-bright-green;
-      display: block;
-    }
+    @media (max-width: $bp-sm) { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+
+    &-accent { color: $color-teal; display: block; }
   }
 
   &__subtitle {
-    color: rgba($color-white, 0.7);
-    font-size: 1.1rem;
+    color: $color-gray;
+    font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: $space-lg;
     max-width: 520px;
-  }
 
-  &__br {
-    @media (max-width: $bp-md) { display: none; }
+    @media (max-width: $bp-lg) { margin: 0 auto $space-lg; }
+    @media (max-width: $bp-sm) { margin: 0 0 $space-lg; }
   }
 
   &__metrics {
@@ -210,11 +206,18 @@ const breakdown = [
     gap: $space-md;
     margin-bottom: $space-lg;
     padding: $space-sm $space-md;
-    background: rgba($color-white, 0.06);
-    border: 1px solid rgba($color-white, 0.1);
+    background: $color-white;
+    border: 1px solid $color-border;
     border-radius: 16px;
-    backdrop-filter: blur(8px);
     width: fit-content;
+    box-shadow: 0 2px 12px rgba($color-teal, 0.08);
+
+    @media (max-width: $bp-lg) { margin: 0 auto $space-lg; }
+    @media (max-width: $bp-sm) {
+      width: 100%;
+      justify-content: space-around;
+      margin: 0 0 $space-lg;
+    }
   }
 
   &__metric {
@@ -223,15 +226,14 @@ const breakdown = [
     flex-direction: column;
 
     &-num {
-      font-family: $font-display;
       font-weight: 800;
-      font-size: 1.4rem;
-      color: $color-bright-green;
+      font-size: 1.3rem;
+      color: $color-teal;
     }
 
     &-label {
-      font-size: 0.72rem;
-      color: rgba($color-white, 0.5);
+      font-size: 0.68rem;
+      color: $color-gray;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -239,7 +241,7 @@ const breakdown = [
     &-divider {
       width: 1px;
       height: 36px;
-      background: rgba($color-white, 0.15);
+      background: $color-border;
     }
   }
 
@@ -247,30 +249,33 @@ const breakdown = [
     display: flex;
     gap: $space-sm;
     flex-wrap: wrap;
+
+    @media (max-width: $bp-lg) { justify-content: center; }
+    @media (max-width: $bp-sm) {
+      flex-direction: column;
+      .btn { width: 100%; justify-content: center; }
+    }
   }
 
   &__visual {
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 30px 50px 30px 20px;
+    padding: 40px 50px;
     overflow: visible;
 
-    @media (max-width: $bp-lg) {
-      display: none;
-    }
+    @media (max-width: $bp-lg) { display: none; }
   }
 
   &__score-card {
-    background: rgba($color-white, 0.07);
-    border: 1px solid rgba($color-white, 0.12);
+    background: $color-teal;
+    border: 1px solid rgba($color-white, 0.15);
     border-radius: 24px;
     padding: $space-md;
-    backdrop-filter: blur(16px);
     width: 300px;
     position: relative;
     z-index: 1;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 24px 64px rgba($color-teal, 0.25);
   }
 
   &__score-header {
@@ -281,9 +286,8 @@ const breakdown = [
   }
 
   &__score-label {
-    font-family: $font-mono;
     font-size: 0.75rem;
-    color: rgba($color-white, 0.5);
+    color: rgba($color-white, 0.7);
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
@@ -294,11 +298,10 @@ const breakdown = [
     font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
 
     &.competitive {
-      background: rgba($color-bright-green, 0.2);
-      color: $color-bright-green;
+      background: rgba($color-white, 0.2);
+      color: $color-white;
     }
   }
 
@@ -314,14 +317,8 @@ const breakdown = [
     height: 120px;
   }
 
-  &__ring-svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  &__ring-progress {
-    animation: ringFill 1.5s ease-out 0.5s both;
-  }
+  &__ring-svg { width: 100%; height: 100%; }
+  &__ring-progress { animation: ringFill 1.5s ease-out 0.5s both; }
 
   @keyframes ringFill {
     from { stroke-dashoffset: 327; }
@@ -338,23 +335,14 @@ const breakdown = [
   }
 
   &__score-num {
-    font-family: $font-display;
     font-weight: 800;
     font-size: 2.2rem;
     color: $color-white;
     line-height: 1;
   }
 
-  &__score-max {
-    font-size: 0.75rem;
-    color: rgba($color-white, 0.4);
-  }
-
-  &__score-breakdown {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
+  &__score-max { font-size: 0.75rem; color: rgba($color-white, 0.6); }
+  &__score-breakdown { display: flex; flex-direction: column; gap: 0.75rem; }
 
   &__breakdown-item {
     display: grid;
@@ -363,15 +351,11 @@ const breakdown = [
     gap: 0.5rem;
   }
 
-  &__breakdown-label {
-    font-size: 0.78rem;
-    color: rgba($color-white, 0.6);
-    font-family: $font-mono;
-  }
+  &__breakdown-label { font-size: 0.78rem; color: rgba($color-white, 0.7); }
 
   &__breakdown-bar {
     height: 6px;
-    background: rgba($color-white, 0.1);
+    background: rgba($color-white, 0.2);
     border-radius: 3px;
     overflow: hidden;
   }
@@ -382,16 +366,9 @@ const breakdown = [
     animation: barFill 1.2s ease-out 0.8s both;
   }
 
-  @keyframes barFill {
-    from { width: 0 !important; }
-  }
+  @keyframes barFill { from { width: 0 !important; } }
 
-  &__breakdown-val {
-    font-family: $font-mono;
-    font-size: 0.72rem;
-    color: rgba($color-white, 0.5);
-    text-align: right;
-  }
+  &__breakdown-val { font-size: 0.72rem; color: rgba($color-white, 0.7); text-align: right; }
 
   &__float-badge {
     position: absolute;
@@ -401,28 +378,18 @@ const breakdown = [
     padding: 0.6rem 1rem;
     background: $color-white;
     border-radius: 50px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     font-size: 0.8rem;
     font-weight: 500;
     color: $color-dark;
     white-space: nowrap;
     z-index: 2;
 
-    &--1 {
-      top: -30px;
-      right: -10px;
-      animation: floatBadge1 3s ease-in-out infinite;
-    }
-
-    &--2 {
-      bottom: -30px;
-      left: -10px;
-      animation: floatBadge1 3s ease-in-out infinite;
-      animation-delay: 1.5s;
-    }
+    &--1 { top: -20px; right: -10px; animation: floatBadge 3s ease-in-out infinite; }
+    &--2 { bottom: -20px; left: -10px; animation: floatBadge 3s ease-in-out infinite; animation-delay: 1.5s; }
   }
 
-  @keyframes floatBadge1 {
+  @keyframes floatBadge {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
@@ -433,12 +400,13 @@ const breakdown = [
     padding-bottom: $space-lg;
     position: relative;
     z-index: 1;
+    @media (max-width: $bp-sm) { display: none; }
   }
 
   &__scroll-line {
     width: 1px;
     height: 60px;
-    background: linear-gradient(to bottom, rgba($color-white, 0.3), transparent);
+    background: linear-gradient(to bottom, rgba($color-teal, 0.4), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
   }
 

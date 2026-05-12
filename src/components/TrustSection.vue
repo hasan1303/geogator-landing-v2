@@ -53,13 +53,12 @@ const privacyItems = [
   'Nur öffentlich zugängliche Daten werden analysiert',
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
 .trust {
   padding: $space-3xl 0;
-  background: $color-white;
+  background: $color-mint; // mint i lehtë
 
   &__inner {
     display: grid;
@@ -67,9 +66,7 @@ const privacyItems = [
     gap: $space-2xl;
     align-items: start;
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: 1fr;
-    }
+    @media (max-width: $bp-lg) { grid-template-columns: 1fr; }
   }
 
   &__title {
@@ -77,7 +74,7 @@ const privacyItems = [
     color: $color-dark;
     margin-bottom: $space-sm;
 
-    span { color: $color-brand-green; }
+    span { color: $color-teal; }
   }
 
   &__content > p {
@@ -98,16 +95,17 @@ const privacyItems = [
     align-items: flex-start;
 
     &-icon { font-size: 1.4rem; flex-shrink: 0; }
-
     strong { font-size: 0.95rem; color: $color-dark; display: block; margin-bottom: 0.2rem; }
     p { font-size: 0.85rem; color: $color-gray; }
   }
 
+  // Privacy card - white
   &__privacy {
-    background: $color-sage-light;
+    background: $color-white;
     border: 1px solid $color-border;
     border-radius: 24px;
     padding: $space-lg;
+    box-shadow: 0 2px 16px rgba($color-teal, 0.06);
   }
 
   &__privacy-header {
@@ -138,7 +136,7 @@ const privacyItems = [
   }
 
   &__privacy-check {
-    color: $color-bright-green;
+    color: $color-teal;
     font-weight: 700;
     flex-shrink: 0;
   }
@@ -147,7 +145,7 @@ const privacyItems = [
     padding-top: $space-sm;
     border-top: 1px solid $color-border;
     font-size: 0.85rem;
-    color: $color-dark-green;
+    color: $color-teal;
     font-weight: 600;
   }
 }

@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -8,51 +8,27 @@
   padding: 0;
 }
 
-:root {
-  --color-dark-green: #{$color-dark-green};
-  --color-mid-green: #{$color-mid-green};
-  --color-brand-green: #{$color-brand-green};
-  --color-bright-green: #{$color-bright-green};
-  --color-light-green: #{$color-light-green};
-  --color-sage-bg: #{$color-sage-bg};
-  --color-sage-light: #{$color-sage-light};
-  --color-orange: #{$color-orange};
-  --color-white: #{$color-white};
-  --color-dark: #{$color-dark};
-  --color-gray: #{$color-gray};
-  --color-border: #{$color-border};
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-  font-family: $font-body;
+  font-family: 'DM Sans', sans-serif;
   color: $color-dark;
-  background-color: $color-white;
+  background-color: $color-mint;
+  background-image:
+    linear-gradient(rgba($color-teal, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($color-teal, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
 
 h1, h2, h3, h4, h5 {
-  font-family: $font-display;
+  font-family: 'DM Sans', sans-serif;
   line-height: 1.15;
   font-weight: 700;
 }
@@ -62,22 +38,19 @@ h1, h2, h3, h4, h5 {
   margin: 0 auto;
   padding: 0 $space-md;
 
-  @media (max-width: $bp-md) {
-    padding: 0 $space-sm;
-  }
-
-  @media (max-width: $bp-sm) {
-    padding: 0 1rem;
-  }
+  @media (max-width: $bp-md) { padding: 0 $space-sm; }
+  @media (max-width: $bp-sm) { padding: 0 1rem; }
 }
 
+// Buttons
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: $space-xs;
   padding: 0.8rem 1.8rem;
   border-radius: 50px;
-  font-family: $font-body;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
@@ -98,29 +71,66 @@ h1, h2, h3, h4, h5 {
     }
   }
 
-&--outline {
-  background: rgba($color-white, 0.1);
-  color: $color-white;
-  border-color: rgba($color-white, 0.5);
+  &--teal {
+    background: $color-teal;
+    color: $color-white;
+    border-color: $color-teal;
 
-  &:hover {
-    background: rgba($color-white, 0.25);
-    border-color: $color-white;
-    transform: translateY(-2px);
+    &:hover {
+      background: $color-teal-dark;
+      border-color: $color-teal-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($color-teal, 0.3);
+    }
   }
-}
 
-&--ghost {
-  background: rgba($color-white, 0.1);
-  color: $color-white;
-  border-color: rgba($color-white, 0.4);
-  backdrop-filter: blur(8px);
+  &--outline {
+    background: transparent;
+    color: $color-teal;
+    border-color: $color-teal;
 
-  &:hover {
-    background: rgba($color-white, 0.25);
-    border-color: rgba($color-white, 0.8);
+    &:hover {
+      background: $color-teal;
+      color: $color-white;
+      transform: translateY(-2px);
+    }
   }
-}
+
+  &--outline-white {
+    background: rgba($color-white, 0.1);
+    color: $color-white;
+    border-color: rgba($color-white, 0.5);
+
+    &:hover {
+      background: rgba($color-white, 0.25);
+      border-color: $color-white;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--ghost {
+    background: $color-white;
+    color: $color-teal;
+    border-color: $color-border;
+
+    &:hover {
+      background: $color-mint;
+      border-color: $color-teal;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--green {
+    background: $color-teal;
+    color: $color-white;
+    border-color: $color-teal;
+
+    &:hover {
+      background: $color-teal-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($color-teal, 0.3);
+    }
+  }
 
   &--lg {
     padding: 1rem 2.4rem;
@@ -128,35 +138,19 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.score-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
-  font-family: $font-display;
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: $color-white;
-
-  &--green { background: $color-bright-green; }
-  &--orange { background: $color-orange; }
-  &--dark { background: $color-dark-green; }
-}
-
+// Section tag
 .section-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 1rem;
-  background: $color-sage-bg;
+  background: $color-white;
   border: 1px solid $color-border;
   border-radius: 50px;
-  font-family: $font-mono;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
   font-weight: 500;
-  color: $color-brand-green;
+  color: $color-teal;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: $space-sm;
@@ -166,7 +160,21 @@ h1, h2, h3, h4, h5 {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: $color-bright-green;
+    background: $color-teal;
     display: block;
   }
 }
+
+// Card base - light background
+.card {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 20px;
+  padding: $space-md;
+  box-shadow: 0 2px 16px rgba($color-teal, 0.06);
+}
+
+// Section backgrounds
+.section--white { background: $color-white; }
+.section--mint { background: $color-mint; }
+.section--light { background: $color-gray-light; }

@@ -69,24 +69,26 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     gap: $space-md;
   }
 
-  &__logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    z-index: 1001;
-  }
+ &__logo {
+  flex-shrink: 0;
 
-  &__logo-img {
-    height: 48px;
-    width: auto;
+  img {
+    height: 80px;
+    width: 80px;
     object-fit: contain;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    border-radius: 50%;
+    background: $color-white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    ilter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
     transition: transform 0.2s ease;
 
     &:hover { transform: scale(1.05); }
 
     @media (max-width: $bp-sm) { height: 40px; }
   }
+}
+
+  
 
 &__links {
   display: flex;
@@ -103,11 +105,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     align-items: center;
     background: $color-dark-green;
     gap: $space-lg;
-    z-index: 9999;        // ← ndrysho këtë
-    top: 0;               // ← shto këtë
-    left: 0;              // ← shto këtë
-    width: 100vw;         // ← shto këtë
-    height: 100vh;        // ← shto këtë
+    z-index: 9999;        
+    top: 0;              
+    left: 0;              
+    width: 100vw;        
+    height: 100vh;        
 
     &--open { display: flex; }
   }

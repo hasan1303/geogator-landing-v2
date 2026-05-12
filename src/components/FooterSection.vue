@@ -70,15 +70,16 @@ const linkCols = [
 @use '../assets/styles/variables' as *;
 
 .footer {
-  background: $color-dark-green;
-  color: rgba($color-white, 0.8);
+  background: $color-mint;
+  color: $color-dark;
+  border-top: 2px solid $color-border;
 
   &__top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: $space-xl;
     padding: $space-2xl 0;
-    border-bottom: 1px solid rgba($color-white, 0.12);
+    border-bottom: 1px solid $color-border;
 
     @media (max-width: $bp-lg) { grid-template-columns: 1fr 1fr; }
     @media (max-width: $bp-sm) { grid-template-columns: 1fr; gap: $space-lg; padding: $space-xl 0; }
@@ -90,20 +91,17 @@ const linkCols = [
       line-height: 1.7;
       margin-bottom: $space-sm;
       max-width: 280px;
-      color: rgba($color-white, 0.65);
+      color: $color-gray;
     }
   }
 
-  &__logo {
-    margin-bottom: $space-sm;
-  }
+  &__logo { margin-bottom: $space-sm; }
 
   &__logo-img {
-    height: 70px;
+    height: 80px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-    @media (max-width: $bp-sm) { height: 55px; }
+    @media (max-width: $bp-sm) { height: 60px; }
   }
 
   &__contact {
@@ -113,18 +111,17 @@ const linkCols = [
 
     a {
       font-size: 0.85rem;
-      color: rgba($color-white, 0.5);
+      color: $color-gray;
       transition: color $transition-fast;
-      &:hover { color: $color-white; }
+      &:hover { color: $color-teal; }
     }
   }
 
   &__links-col {
     h4 {
-      font-family: $font-display;
       font-size: 0.8rem;
       font-weight: 700;
-      color: rgba($color-white, 0.4);
+      color: $color-teal;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: $space-sm;
@@ -134,23 +131,25 @@ const linkCols = [
 
     a {
       font-size: 0.875rem;
-      color: rgba($color-white, 0.65);
+      color: $color-gray;
       transition: color $transition-fast;
-      &:hover { color: $color-white; }
+      &:hover { color: $color-teal; }
     }
   }
 
+  // Bottom bar - teal background
   &__bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $space-md 0;
     gap: $space-md;
     flex-wrap: wrap;
+    background: $color-teal;
+    padding: $space-sm $space-md;
 
     @media (max-width: $bp-sm) { flex-direction: column; text-align: center; }
 
-    p { font-size: 0.78rem; color: rgba($color-white, 0.4); }
+    p { font-size: 0.78rem; color: rgba($color-white, 0.8); }
   }
 
   &__legal {
@@ -159,7 +158,7 @@ const linkCols = [
 
     a {
       font-size: 0.78rem;
-      color: rgba($color-white, 0.4);
+      color: rgba($color-white, 0.8);
       transition: color $transition-fast;
       &:hover { color: $color-white; }
     }

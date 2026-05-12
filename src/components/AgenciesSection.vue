@@ -95,23 +95,19 @@ const stats = [
 </script>
 
 <style lang="scss" scoped>
-/* Styles apply only to this component (scoped) */
 @use '../assets/styles/variables' as *;
 
 .agencies {
   padding: $space-3xl 0;
   background: $color-white;
 
-  /* Two-column layout, stacks on tablet/mobile */
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $space-2xl;
     align-items: start;
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: 1fr;
-    }
+    @media (max-width: $bp-lg) { grid-template-columns: 1fr; }
   }
 
   &__content {
@@ -123,13 +119,12 @@ const stats = [
     }
   }
 
-  /* Responsive font size using clamp() */
   &__title {
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     color: $color-dark;
     margin-bottom: $space-sm;
 
-    span { color: $color-brand-green; }
+    span { color: $color-teal; }
   }
 
   &__benefits {
@@ -139,7 +134,6 @@ const stats = [
     margin-bottom: $space-lg;
   }
 
-  /* Each benefit row: green dot + text */
   &__benefit {
     display: flex;
     align-items: center;
@@ -151,13 +145,14 @@ const stats = [
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: $color-bright-green;
+      background: $color-teal;
       flex-shrink: 0;
     }
   }
 
+  // Model card - mint background i lehtë
   &__model {
-    background: $color-sage-light;
+    background: $color-mint;
     border: 1px solid $color-border;
     border-radius: 20px;
     padding: $space-md;
@@ -182,7 +177,6 @@ const stats = [
     p { font-size: 0.82rem; color: $color-gray; }
   }
 
-  /* Right column stays sticky while scrolling */
   &__visual {
     display: flex;
     flex-direction: column;
@@ -191,27 +185,27 @@ const stats = [
     top: 100px;
   }
 
-  /* Slides right on hover */
+  // Stat cards - mint background
   &__stat-card {
     display: flex;
     align-items: center;
     gap: $space-sm;
     padding: $space-md;
-    background: $color-sage-light;
+    background: $color-mint;
     border: 1px solid $color-border;
     border-radius: 16px;
     transition: transform $transition-base;
 
     &:hover { transform: translateX(6px); }
     &-icon { font-size: 1.5rem; }
-    strong { font-family: $font-display; font-size: 1.3rem; color: $color-brand-green; display: block; }
+    strong { font-size: 1.3rem; color: $color-teal; display: block; }
     p { font-size: 0.82rem; color: $color-gray; }
   }
 
-  /* Dark card for credit system info */
+  // Credit card 
   &__credit-card {
     padding: $space-md;
-    background: $color-dark-green;
+    background: $color-teal;
     border-radius: 16px;
     color: $color-white;
     margin-top: 0.5rem;
@@ -227,17 +221,16 @@ const stats = [
   }
 
   &__credit-badge {
-    background: rgba($color-bright-green, 0.2);
-    color: $color-bright-green;
+    background: rgba($color-white, 0.2);
+    color: $color-white;
     padding: 0.2rem 0.7rem;
     border-radius: 50px;
     font-size: 0.7rem;
     font-weight: 600;
   }
 
-  p { font-size: 0.85rem; color: rgba($color-white, 0.6); margin-bottom: 0.75rem; }
+  p { font-size: 0.85rem; color: rgba($color-white, 0.8); margin-bottom: 0.75rem; }
 
-  /* Arrow prefix on list items */
   ul {
     display: flex;
     flex-direction: column;
@@ -245,8 +238,8 @@ const stats = [
 
     li {
       font-size: 0.82rem;
-      color: rgba($color-white, 0.7);
-      &::before { content: '→ '; color: $color-bright-green; }
+      color: rgba($color-white, 0.85);
+      &::before { content: '→ '; color: rgba($color-white, 0.6); }
     }
   }
 }

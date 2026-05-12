@@ -170,23 +170,16 @@ const agencyPlans = [
   },
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
 .pricing {
   padding: $space-3xl 0;
-  background: $color-dark-green;
+  background: $color-gray-light; // background gri i lehtë
   position: relative;
   overflow: hidden;
 
-  &__bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba($color-bright-green, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba($color-orange, 0.06) 0%, transparent 40%);
-  }
+  &__bg { display: none; } // heqim gradient-in e errët
 
   &__header {
     text-align: center;
@@ -196,28 +189,27 @@ const agencyPlans = [
 
   &__title {
     font-size: clamp(2rem, 4vw, 3rem);
-    color: $color-white;
+    color: $color-dark;
     margin-bottom: $space-sm;
 
-    span { color: $color-bright-green; }
+    span { color: $color-teal; }
   }
 
   &__desc {
-    color: rgba($color-white, 0.6);
+    color: $color-gray;
     font-size: 1.05rem;
   }
 
+  // Tabs
   &__tabs {
     display: flex;
     justify-content: center;
-    gap: 0;
-    background: rgba($color-white, 0.07);
-    border: 1px solid rgba($color-white, 0.1);
+    background: $color-white;
+    border: 1px solid $color-border;
     border-radius: 50px;
     padding: 4px;
     width: fit-content;
     margin: 0 auto $space-xl;
-    position: relative;
   }
 
   &__tab {
@@ -225,7 +217,7 @@ const agencyPlans = [
     border-radius: 50px;
     border: none;
     background: transparent;
-    color: rgba($color-white, 0.6);
+    color: $color-gray;
     font-family: $font-body;
     font-size: 0.9rem;
     font-weight: 500;
@@ -233,7 +225,7 @@ const agencyPlans = [
     transition: all $transition-base;
 
     &--active {
-      background: $color-bright-green;
+      background: $color-teal;
       color: $color-white;
     }
   }
@@ -251,25 +243,29 @@ const agencyPlans = [
     }
   }
 
+  // Cards - background white 
   &__card {
-    background: rgba($color-white, 0.06);
-    border: 1px solid rgba($color-white, 0.1);
+    background: $color-white;
+    border: 1px solid $color-border;
     border-radius: 24px;
     padding: $space-lg;
     display: flex;
     flex-direction: column;
     gap: $space-sm;
     position: relative;
-    transition: transform $transition-base, border-color $transition-base;
+    transition: transform $transition-base, box-shadow $transition-base;
+    box-shadow: 0 2px 16px rgba($color-teal, 0.06);
 
     &:hover {
       transform: translateY(-6px);
-      border-color: rgba($color-bright-green, 0.4);
+      box-shadow: 0 16px 40px rgba($color-teal, 0.12);
+      border-color: $color-teal;
     }
 
+    // Featured card - mint background
     &--featured {
-      background: rgba($color-white, 0.12);
-      border-color: $color-bright-green;
+      background: $color-mint;
+      border-color: $color-teal;
       transform: scale(1.02);
 
       &:hover { transform: scale(1.02) translateY(-6px); }
@@ -292,14 +288,12 @@ const agencyPlans = [
     white-space: nowrap;
   }
 
-  &__plan-icon {
-    font-size: 1.8rem;
-  }
+  &__plan-icon { font-size: 1.8rem; }
 
   h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: $color-white;
+    color: $color-dark;
   }
 
   &__price {
@@ -309,23 +303,22 @@ const agencyPlans = [
   }
 
   &__amount {
-    font-family: $font-display;
     font-weight: 800;
     font-size: 2rem;
-    color: $color-bright-green;
+    color: $color-teal;
   }
 
   &__period {
     font-size: 0.85rem;
-    color: rgba($color-white, 0.5);
+    color: $color-gray;
   }
 
   &__tagline {
     font-size: 0.85rem;
-    color: rgba($color-white, 0.6);
+    color: $color-gray;
     line-height: 1.5;
     padding-bottom: $space-sm;
-    border-bottom: 1px solid rgba($color-white, 0.08);
+    border-bottom: 1px solid $color-border;
   }
 
   &__features {
@@ -339,12 +332,12 @@ const agencyPlans = [
       display: flex;
       gap: 0.5rem;
       font-size: 0.875rem;
-      color: rgba($color-white, 0.75);
+      color: $color-gray;
     }
   }
 
   &__check {
-    color: $color-bright-green;
+    color: $color-teal;
     flex-shrink: 0;
     font-weight: 600;
   }
