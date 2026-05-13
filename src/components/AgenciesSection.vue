@@ -93,7 +93,6 @@ const stats = [
   { icon: '⚡', value: 'Sofort', label: 'nach Freischaltung startbereit' },
 ]
 </script>
-
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
@@ -139,7 +138,7 @@ const stats = [
     align-items: center;
     gap: 0.75rem;
     font-size: 0.95rem;
-    color: $color-gray;
+    color: $color-dark;
 
     &-dot {
       width: 8px;
@@ -150,7 +149,6 @@ const stats = [
     }
   }
 
-  // Model card - mint background i lehtë
   &__model {
     background: $color-mint;
     border: 1px solid $color-border;
@@ -174,7 +172,7 @@ const stats = [
 
     &-icon { font-size: 1.2rem; flex-shrink: 0; }
     strong { font-size: 0.9rem; color: $color-dark; display: block; margin-bottom: 0.2rem; }
-    p { font-size: 0.82rem; color: $color-gray; }
+    p { font-size: 0.82rem; color: $color-dark !important; }
   }
 
   &__visual {
@@ -185,7 +183,6 @@ const stats = [
     top: 100px;
   }
 
-  // Stat cards - mint background
   &__stat-card {
     display: flex;
     align-items: center;
@@ -198,17 +195,45 @@ const stats = [
 
     &:hover { transform: translateX(6px); }
     &-icon { font-size: 1.5rem; }
+
     strong { font-size: 1.3rem; color: $color-teal; display: block; }
-    p { font-size: 0.82rem; color: $color-gray; }
+    p { font-size: 0.82rem; color: $color-dark !important; }
   }
 
-  // Credit card 
   &__credit-card {
     padding: $space-md;
     background: $color-teal;
     border-radius: 16px;
     color: $color-white;
     margin-top: 0.5rem;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: $color-white;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: rgba($color-white, 0.9) !important;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      li {
+        font-size: 0.82rem;
+        color: rgba($color-white, 0.9);
+        &::before { content: '→ '; color: rgba($color-white, 0.6); }
+      }
+    }
   }
 
   &__credit-header {
@@ -227,20 +252,6 @@ const stats = [
     border-radius: 50px;
     font-size: 0.7rem;
     font-weight: 600;
-  }
-
-  p { font-size: 0.85rem; color: rgba($color-white, 0.8); margin-bottom: 0.75rem; }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-
-    li {
-      font-size: 0.82rem;
-      color: rgba($color-white, 0.85);
-      &::before { content: '→ '; color: rgba($color-white, 0.6); }
-    }
   }
 }
 </style>

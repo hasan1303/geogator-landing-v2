@@ -25,11 +25,12 @@
 
       <div class="footer__bottom">
         <p>© 2025 MIM Marken Institut München GmbH · Ridlerstraße 35a, 80339 München</p>
-        <div class="footer__legal">
-          <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
-          <a href="#">AGB</a>
-        </div>
+       <div class="footer__legal">
+  <router-link to="/impressum">Impressum</router-link>
+  <router-link to="/agb">AGB</router-link>
+  <router-link to="/datenschutz">Datenschutz</router-link>
+</div>
+
       </div>
     </div>
   </footer>
@@ -72,7 +73,11 @@ const linkCols = [
 .footer {
   background: $color-mint;
   color: $color-dark;
-  border-top: 2px solid $color-border;
+  border-top: 1px solid $color-border;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
 
   &__top {
     display: grid;
@@ -139,18 +144,22 @@ const linkCols = [
 
   // Bottom bar - teal background
   &__bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: $space-md;
-    flex-wrap: wrap;
-    background: $color-teal;
-    padding: $space-sm $space-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-md;
+  flex-wrap: wrap;
+  background: $color-teal;
+  padding: $space-sm $space-md;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50% + #{$space-md});
+  padding-right: calc(50vw - 50% + #{$space-md});
 
-    @media (max-width: $bp-sm) { flex-direction: column; text-align: center; }
+  @media (max-width: $bp-sm) { flex-direction: column; text-align: center; }
 
-    p { font-size: 0.78rem; color: rgba($color-white, 0.8); }
-  }
+  p { font-size: 0.78rem; color: rgba($color-white, 0.8); }
+}
 
   &__legal {
     display: flex;

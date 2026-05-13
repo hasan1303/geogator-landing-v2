@@ -12,7 +12,7 @@ $color-gray: #4A4A4A;
 $color-gray-light: #F5F5F5;
 $color-border: #d0e8e8;
 
-// Aliases për backward compatibility
+// Aliases 
 $color-dark-green: #0a5957;
 $color-mid-green: #13918f;
 $color-brand-green: #13918f;
@@ -20,7 +20,7 @@ $color-bright-green: #13918f;
 $color-light-green: #e6f7ea;
 $color-sage-bg: #e6f7ea;
 
-// Typography - DM Sans everywhere, no Syne
+// Typography - DM Sans 
 $font-display: 'DM Sans', sans-serif;
 $font-body: 'DM Sans', sans-serif;
 $font-mono: 'JetBrains Mono', monospace;
@@ -44,3 +44,9 @@ $bp-xl: 1280px;
 $transition-fast: 0.2s ease;
 $transition-base: 0.35s ease;
 $transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Responsive spacing - mobile
+$space-lg-mobile: 1.5rem;
+$space-xl-mobile: 2rem;
+$space-2xl-mobile: 2.5rem;
+$space-3xl-mobile: 3rem;

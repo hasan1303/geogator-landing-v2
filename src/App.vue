@@ -1,31 +1,40 @@
 <template>
   <div id="app">
-    <NavBar />
-    <HeroSection />
-    <WhySection />
-    <PricingSection />
-    <ReportSection />
-    <HowItWorks />
-    <AgenciesSection />
-    <TrustSection />
-    <FaqSection />
+    <NavBarHome v-if="!isLegalPage" />
+    <NavBarLegal v-if="isLegalPage" />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <FooterSection />
   </div>
 </template>
 
 <script setup>
-import NavBar from './components/NavBar.vue'
-import HeroSection from './components/HeroSection.vue'
-import WhySection from './components/WhySection.vue'
-import ReportSection from './components/ReportSection.vue'
-import HowItWorks from './components/HowItWorks.vue'
-import PricingSection from './components/PricingSection.vue'
-import AgenciesSection from './components/AgenciesSection.vue'
-import TrustSection from './components/TrustSection.vue'
-import FaqSection from './components/FaqSection.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import NavBarHome from './components/NavBarHome.vue'
+import NavBarLegal from './components/NavBarLegal.vue'
 import FooterSection from './components/FooterSection.vue'
+
+const route = useRoute()
+
+const isLegalPage = computed(() => {
+  return ['/impressum', '/agb', '/datenschutz'].includes(route.path)
+})
 </script>
 
 <style lang="scss">
 @use './assets/styles/global.scss';
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

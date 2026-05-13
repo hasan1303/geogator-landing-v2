@@ -178,3 +178,37 @@ h1, h2, h3, h4, h5 {
 .section--white { background: $color-white; }
 .section--mint { background: $color-mint; }
 .section--light { background: $color-gray-light; }
+
+// Global mobile spacing override
+@media (max-width: $bp-sm) {
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .why__header,
+  .report__header,
+  .how__header,
+  .pricing__header,
+  .faq__header {
+    margin-bottom: 2rem !important;
+  }
+
+  .why__grid,
+  .how__steps,
+  .pricing__cards {
+    gap: 1rem !important;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+}
+
+// Tablet spacing
+@media (max-width: $bp-md) {
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+}

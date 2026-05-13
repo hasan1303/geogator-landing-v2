@@ -9,8 +9,10 @@
 
       <div class="why__grid">
         <div class="why__card why__card--problem">
-          <div class="why__card-icon">❌</div>
-          <h3>Ohne GEOGATOR</h3>
+          <div class="why__card-header">
+            <span class="why__card-icon">❌</span>
+            <h3>Ohne GEOGATOR</h3>
+          </div>
           <ul class="why__list">
             <li v-for="item in problems" :key="item">
               <span class="why__list-dot why__list-dot--red"></span>
@@ -20,8 +22,10 @@
         </div>
 
         <div class="why__card why__card--solution">
-          <div class="why__card-icon">✅</div>
-          <h3>Mit GEOGATOR</h3>
+          <div class="why__card-header">
+            <span class="why__card-icon">✅</span>
+            <h3>Mit GEOGATOR</h3>
+          </div>
           <ul class="why__list">
             <li v-for="item in solutions" :key="item">
               <span class="why__list-dot why__list-dot--green"></span>
@@ -68,16 +72,21 @@ const features = [
   { icon: '🏆', title: 'Wettbewerbsvergleich', desc: 'Ihre Position im Markt – klar und kontextbezogen eingeordnet.' },
 ]
 </script>
+
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as *;
 
 .why {
   padding: $space-3xl 0;
-  background: $color-white; // seksion i bardhë
+  background: $color-white;
+
+  @media (max-width: $bp-sm) { padding: 3rem 0; }
 
   &__header {
     text-align: center;
     margin-bottom: $space-2xl;
+
+    @media (max-width: $bp-sm) { margin-bottom: 2rem; }
   }
 
   &__title {
@@ -103,42 +112,57 @@ const features = [
     margin-bottom: $space-xl;
 
     @media (max-width: $bp-md) { grid-template-columns: 1fr; }
+    @media (max-width: $bp-sm) { margin-bottom: 2rem; }
   }
 
   &__card {
-    padding: $space-lg;
+    padding: $space-md;
     border-radius: 20px;
     border: 1px solid $color-border;
-    background: $color-white;
 
-    &-icon { font-size: 1.5rem; margin-bottom: $space-sm; }
-
-    h3 { font-size: 1.2rem; margin-bottom: $space-sm; color: $color-dark; }
-
-    // Problem card - warm light background
     &--problem {
       background: #FFF8F5;
       border-color: #FFD0B0;
     }
 
-    // Solution card - mint light background
     &--solution {
       background: $color-mint;
       border-color: $color-border;
     }
   }
 
+  // Ikona dhe titulli në të njëjtin rresht
+  &__card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: $space-sm;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $color-dark;
+      margin: 0;
+    }
+  }
+
+  &__card-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
 
     li {
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      font-size: 0.95rem;
-      color: $color-gray;
+      font-size: 0.9rem;
+      color: $color-dark;
       line-height: 1.5;
     }
   }
